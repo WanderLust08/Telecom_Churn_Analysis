@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="relative h-screen">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-white"
+      ></div>
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('/static/images/backgrnd.jpg')"
+      >
+        <!-- Your content here -->
+
+        <div
+          class="mt-7 text-2xl md:text-3xl rounded-3xl bg-cyan-700 mx-[500px] text-white text-center py-5 font-bold"
+        >
+          TeleCom Churn Analysis
+        </div>
+
+        <div class="flex justify-evenly p-6 my-[100px]">
+          <img
+            class="rounded-3xl h-fit w-[800px]"
+            src="{{ url_for('static',filename='images/image2.png')}}"
+          />
+
+          <blockquote
+            class="text-2xl font-bold italic text-center text-slate-900 py-[100px]"
+          >
+            " Telecom churn analysis predicts customer
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block"
+            >
+              <span class="relative text-white">departures</span> </span
+            ><br />
+            enabling proactive
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block"
+            >
+              <span class="relative text-white">retention</span>
+            </span>
+            strategies to reduce losses."
+          </blockquote>
+        </div>
+
+        <div class="flex justify-evenly p-6 my-[200px]">
+          <blockquote
+            class="text-2xl font-bold italic text-center text-slate-900 py-[150px]"
+          >
+            Uncovering trends to keep customers
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block"
+            >
+              <span class="relative text-white">connected</span> </span
+            ><br />
+            and
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block"
+            >
+              <span class="relative text-white">satisfied,</span>
+            </span>
+            one data point at a time."
+          </blockquote>
+
+          <img
+            class="h-fit w-[800px] rounded-3xl"
+            src="{{ url_for('static',filename='images/image.png')}}"
+          />
+        </div>
+
+        <div class="container mx-auto mt-8">
+          <form action="/submit" method="post" class="flex flex-wrap">
+            <div class="flex flex-col px-5 py-6 m-5 bg-slate-200 mx-5">
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="gender"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Gender :</label
+                >
+                <select
+                  id="gender"
+                  class="text-xl font-bold pt-2 bg-slate-200"
+                  name="gender"
+                >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="SeniorCitizen"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Senior Citizen :</label
+                >
+                <select
+                  id="SeniorCitizen"
+                  class="text-xl font-bold"
+                  name="SeniorCitizen"
+                >
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="Partner"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Partner :</label
+                >
+                <select id="Partner" class="text-xl font-bold" name="Partner">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="Dependents"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Dependents :</label
+                >
+                <select
+                  id="Dependents"
+                  class="text-xl font-bold"
+                  name="Dependents"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col px-5 py-6 m-5 bg-slate-200 mx-5">
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="tenure"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Tenure :</label
+                >
+                <input
+                  type="number"
+                  class="text-xl font-bold"
+                  id="tenure"
+                  name="tenure"
+                  min="0"
+                  max="70"
+                  value="0"
+                />
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="PhoneService"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Phone Service :</label
+                >
+                <select
+                  id="PhoneService"
+                  class="text-xl font-bold"
+                  name="PhoneService"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="MultipleLines"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Multiple Lines:</label
+                >
+                <select
+                  id="MultipleLines"
+                  class="text-xl font-bold"
+                  name="MultipleLines"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No phone">No phone</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="InternetService"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >InternetService :</label
+                >
+                <select
+                  id="InternetService"
+                  class="text-xl font-bold"
+                  name="InternetService"
+                >
+                  <option value="DSL">DSL</option>
+                  <option value="Fiber optic">Fiber optic</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col px-5 py-6 m-5 bg-slate-200 mx-5">
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="OnlineSecurity"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >OnlineSecurity :</label
+                >
+                <select
+                  id="OnlineSecurity"
+                  class="text-xl font-bold"
+                  name="OnlineSecurity"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="OnlineBackup"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >OnlineBackup :</label
+                >
+                <select
+                  id="OnlineBackup"
+                  class="text-xl font-bold"
+                  name="OnlineBackup"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="DeviceProtection"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >DeviceProtection :</label
+                >
+                <select
+                  id="DeviceProtection"
+                  class="text-xl font-bold"
+                  name="DeviceProtection"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="TechSupport"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >TechSupport :</label
+                >
+                <select
+                  id="TechSupport"
+                  class="text-xl font-bold"
+                  name="TechSupport"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col px-5 py-6 m-5 bg-slate-200 mx-5">
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="StreamingTV"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >StreamingTV :</label
+                >
+                <select
+                  id="StreamingTV"
+                  class="text-xl font-bold"
+                  name="StreamingTV"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="StreamingMovies"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >StreamingMovies :</label
+                >
+                <select
+                  id="StreamingMovies"
+                  class="text-xl font-bold"
+                  name="StreamingMovies"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="No internet">No internet</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="PaperlessBilling"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Paperless Billing :</label
+                >
+                <select
+                  id="PaperlessBilling"
+                  class="text-xl font-bold"
+                  name="PaperlessBilling"
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col m-2 p-1 bg-slate-200">
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="MonthlyCharges"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Monthly Charges :</label
+                >
+                <input
+                  type="number"
+                  class="text-xl font-bold"
+                  id="MonthlyCharges"
+                  name="MonthlyCharges"
+                  min="0"
+                  step="0.01"
+                  value="0"
+                />
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="TotalCharges"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Total Charges :</label
+                >
+                <input
+                  type="number"
+                  class="text-xl font-bold"
+                  id="TotalCharges"
+                  name="TotalCharges"
+                  min="0"
+                  step="0.01"
+                  value="0"
+                />
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="Contract"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Contract :</label
+                >
+                <select id="Contract" class="text-xl font-bold" name="Contract">
+                  <option value="Month-to-Month">Month-to-Month</option>
+                  <option value="One year">One year</option>
+                  <option value="Two year">Two year</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col px-5 py-6">
+                <label
+                  for="PaymentMethod"
+                  class="text-xl bg-slate-400 text-white font-bold p-2 rounded-lg"
+                  >Payment Method :</label
+                >
+                <select
+                  id="PaymentMethod"
+                  class="text-xl font-bold"
+                  name="PaymentMethod"
+                >
+                  <option value="Electronic check">Electronic check</option>
+                  <option value="Mailed check">Mailed check</option>
+                  <option value="Bank transfer (automatic)">
+                    Bank transfer (automatic)
+                  </option>
+                  <option value="Credit card (automatic)">
+                    Credit card (automatic)
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-col m-3 w-[600px] mx-auto">
+              <input
+                type="submit"
+                class="text-lg font-bold bg-cyan-500 rounded-xl text-white p-2 px-6"
+                value="SUBMIT"
+              />
+            </div>
+          </form>
+        </div>
+
+        {% if value == 1 %}
+        <h1 class="mt-5 text-center text-2xl font-bold text-black">RESULTS : </h1><div
+          class="p-2 w-[150px] h-[50px] bg-green-500 text-center text-2xl font-bold text-white rounded-lg mx-auto"
+        >
+          YES CHURN
+        </div>
+        {% elif value == 0 %}
+        <h1 class="mt-5 text-center text-2xl font-bold text-black">RESULTS : </h1><div
+          class="p-2 w-[150px] h-[50px] bg-red-500 text-2xl text-center font-bold text-white rounded-lg mx-auto"
+        >
+          NO CHURN
+        </div>
+
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- FROM DIS POINT -->
+
+    <!-- <div class="bg-cover bg-center h-screen" style="background-image: url('/static/images/backgrnd.jpg')"> -->
+
+    <!-- 
+    <h1 class="text-4xl text-center py-5 font-bold underline ">TeleCom Churn Analysis</h1>
+
+    <div class="flex justify-evenly p-6 my-6">
+
+      <img class = "rounded-3xl h-fit w-[800px]" src = "{{ url_for('static',filename='images/image.png')}}">
+   
+    
+    <blockquote class="text-2xl font-bold italic text-center text-slate-900 py-[200px]">
+      " Telecom churn analysis predicts customer
+      <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block">
+        <span class="relative text-white">departures</span>
+      </span><br>
+      enabling proactive 
+      <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-cyan-500 relative inline-block">
+        <span class="relative text-white">retention</span>
+      </span>
+      strategies to reduce losses."
+    </blockquote>
+
+  </div>
+
+
+    
+    <form action="/submit" method="post">
+      <label for="gender" class="text-xl font">Gender : </label>
+      <select id="gender" class="text-xl font-bold " name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+<br/>
+      <label for="SeniorCitizen" class="text-xl font">Senior Citizen : </label>
+      <select id="SeniorCitizen" class="text-xl font-bold " name="SeniorCitizen">
+        <option value=0>0</option>
+        <option value=0>1</option>
+      </select>
+
+      <br/>
+
+      <label for="Partner" class="text-xl font">Partner : </label>
+      <select id="Partner" class="text-xl font-bold " name="Partner">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <br/>
+      <label for="Dependents" class="text-xl font">Dependents : </label>
+      <select id="Dependents" class="text-xl font-bold " name="Dependents">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      
+
+
+      <br/>
+      <label for="tenure" class="text-xl font">Tenure : </label>
+      <input type="number" class="text-xl font-bold " id="tenure" name="tenure" min=0 max=70 value=0>
+
+
+      
+      <br/>
+      <label for="PhoneService" class="text-xl font">Phone Service : </label>
+      <select id="PhoneService" class="text-xl font-bold " name="PhoneService">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+
+      <br/>
+      <label for="MultipleLines" class="text-xl font">Multiple Lines: </label>
+      <select id="MultipleLines" class="text-xl font-bold " name="MultipleLines">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No">No phone</option>
+      </select>
+
+
+
+      <br/>
+      <label for="InternetService" class="text-xl font">InternetService : </label>
+      <select id="InternetService" class="text-xl font-bold " name="InternetService">
+        <option value="DSL">DSL</option>
+        <option value="Fiber optic">Fiber optic</option>
+        <option value="No">No</option>
+      </select>
+
+
+
+      <br/>
+      <label for="OnlineSecurity" class="text-xl font">OnlineSecurity : </label>
+      <select id="OnlineSecurity" class="text-xl font-bold " name="OnlineSecurity">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+      
+      <br/>
+      <label for="OnlineBackup" class="text-xl font">OnlineBackup : </label>
+      <select id="OnlineBackup" class="text-xl font-bold " name="OnlineBackup">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+
+      <br/>
+      <label for="DeviceProtection" class="text-xl font">DeviceProtection : </label>
+      <select id="DeviceProtection" class="text-xl font-bold " name="DeviceProtection">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+      
+
+
+      <br/>
+      <label for="TechSupport" class="text-xl font">TechSupport : </label>
+      <select id="TechSupport" class="text-xl font-bold " name="TechSupport">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+
+      
+      
+      <br/>
+      <label for="StreamingTV" class="text-xl font">StreamingTV : </label>
+      <select id="StreamingTV" class="text-xl font-bold " name="StreamingTV">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+
+
+
+
+            
+      <br/>
+      <label for="StreamingMovies" class="text-xl font">StreamingTV : </label>
+      <select id="StreamingMovies" class="text-xl font-bold " name="StreamingMovies">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="No internet">No internet</option>
+      </select>
+
+
+
+
+
+      <br/>
+
+      <label for="PaperlessBilling" class="text-xl font">PaperLess Billing </label>
+      <select id="PaperlessBilling" class="text-xl font-bold " name="PaperlessBilling">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+
+
+
+      <br/>
+      <label for="MonthlyCharges" class="text-xl font">Monthly Charges : </label>
+      <input type="number" class="text-xl font-bold " id="MonthlyCharges" name="MonthlyCharges" min=0 step="0.01" value=0>
+
+      <br/>
+      <label for="TotalCharges" class="text-xl font">Total Charges : </label>
+      <input type="number" class="text-xl font-bold " id="TotalCharges" name="TotalCharges" min=0 step="0.01" value=0>
+
+
+
+      <br/>
+      <label for="Contract" class="text-xl font">Contract : </label>
+      <select id="Contract" class="text-xl font-bold " name="Contract">
+        <option value="Month-to-Month">Month-to-Month</option>
+        <option value="One year">One year</option>
+        <option value="Two year">Two year</option>
+      </select>
+
+
+
+
+
+
+
+
+
+
+
+      <br/>
+      <label for="Payment Method" class="text-xl font">Payment Method: </label>
+      <select id="Payment Method" class="text-xl font-bold " name="Payment Method">
+        <option value="Electronic check">Electronic check</option>
+        <option value="Mailed check">Mailed check</option>
+        <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+        <option value="Credit card (automatic)">Credit card (automatic)</option>
+      </select>
+
+
+     
+
+
+
+      <br/>
+  <input type="submit" class="text-lg font-bold bg-cyan-500 rounded-xl m-9 text-white p-2 px-6" value="SUBMIT">
+
+  <img class = "h-fit w-[800px]" src = "{{ url_for('static',filename='images/image2.png')}}">
+
+
+
+
+
+
+
+
+      
+    </form>
+
+
+
+
+
+
+ -->
+
+    <!-- </div> -->
+  </body>
+</html>
